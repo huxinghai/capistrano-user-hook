@@ -1,0 +1,2 @@
+require 'all'
+require 'rspec'
