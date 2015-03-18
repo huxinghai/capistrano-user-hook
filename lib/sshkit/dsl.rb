@@ -1,5 +1,4 @@
 require 'sshkit/dsl'
-require 'capistrano/setup'
 
 module SSHKit
   module DSL
