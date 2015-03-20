@@ -9,7 +9,6 @@ module SSHKit
 
       private
       def backend(host, &block)
-        puts "======================#{host}"
         back = SSHKit.config.backend.new(host, &block)
         back.instance_variable_set(:@user, @options[:root_user]) if @options[:root_user]
         back
