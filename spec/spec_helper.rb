@@ -1,2 +1,2 @@
-require 'all'
+require 'capistrano/user_hook'
 require 'rspec'

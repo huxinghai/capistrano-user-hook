@@ -2,7 +2,7 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'capistrano-user-hook'
+require 'capistrano/user_hook'
 
 Gem::Specification.new do |s|
   s.name        = 'capistrano-user-hook'
