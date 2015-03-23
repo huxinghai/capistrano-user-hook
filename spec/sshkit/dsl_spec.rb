@@ -8,15 +8,11 @@ describe SSHKit::DSL do
   describe "setting root user" do 
 
     it "setting root user call on method" do
-      block = Proc.new{}
-  
-      dsl.on(roles(:web), {}, &block)
+      dsl.on(roles(:web), {}, &Proc.new{})
     end
 
     it "setting an task not switch user"  do 
-      block = Proc.new{}
-
-      dsl.on(roles(:web), {root_user: :no}, &block)
+      dsl.on(roles(:web), {root_user: :no}, &Proc.new{})
     end
 
     it "roles result data" do 
@@ -28,6 +24,10 @@ describe SSHKit::DSL do
       delete(:root_user)
       expect(fetch(:root_user)).to be_nil
       expect(roles(:web)).to be_kind_of(Array)
+    end
+
+    it "role custom root user exec" do 
+      dsl.on(roles(fetch(:unicorn_roles)), &Proc.new{})
     end
   end
 end

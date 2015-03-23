@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capistrano-user-hook (0.0.7)
+    capistrano-user-hook (0.0.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
 
