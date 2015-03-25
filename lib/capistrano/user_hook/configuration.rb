@@ -9,17 +9,15 @@ module Capistrano
       name = args.first
       user = fetch_root_users(name)
       value = fetch_without_feature(*args)
-      user.nil? ? value : {role: value, root_user: user}
+      user.nil? ? value : [{role: value, root_user: user, name: name}]
     end
 
     alias_method :fetch, :fetch_with_feature
 
     def roles_for(names)
-      root_user = fetch_without_feature(:root_user)
-      if root_user
-        {servers: servers.roles_for(names), options: {root_user: root_user} }
-      elsif names.is_a?(Array) && names[0].is_a?(Hash)
-        {servers: servers.roles_for([names[0][:role]]), options: {root_user: names[0][:root_user]} }
+      if names.is_a?(Array) && names[0].is_a?(Hash)
+        role = names[0][:role]
+        {servers: servers.roles_for(role.is_a?(Array) ? role : [role]), options: {root_user: names[0][:root_user]} }
       else
         servers.roles_for(names)
       end
