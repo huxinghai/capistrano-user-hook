@@ -1,7 +1,17 @@
 # capistrano-user-hook
 server user manage deploy using switch user execute!!
 
-using
+### support
+
+capistrano 3
+
+### install
+
+```SHELL
+  gem 'capistrano-user-hook', '0.0.9', :git => "https://github.com/huxinghai1988/capistrano-user-hook.git"
+```
+
+### using
 
 ```RUBY
   #指定role 用户prod执行
